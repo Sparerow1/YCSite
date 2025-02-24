@@ -1,0 +1,76 @@
+/* Navbar.module.css */
+.nav {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 100;
+    position: relative;
+}
+
+.logo {
+    margin-left: 10px;
+    max-height: 50px;
+}
+
+.logo:hover {
+    animation: jump 0.5s ease-in-out;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.tabs {
+    display: flex;
+    width: 40%;
+    justify-content: left;
+}
+
+.tab {
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    text-align: center;
+    flex: 1;
+    margin: 0 5px; /* Space between tabs */
+    font-weight: bold;
+}
+
+.tab:hover {
+    background-color: grey;
+    color: white;
+}
+
+.sidebarTab {
+    color: white;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.sidebar {
+    position: fixed;
+    right: -450px;
+    top: 0;
+    width: 450px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transition: right 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    right: 0;
+}

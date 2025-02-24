@@ -1,0 +1,70 @@
+$shooting-time: 3000ms;
+$star-movement: 300px;
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: linear-gradient(-45deg, rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
+    filter: drop-shadow(0 0 6px rgba(105, 155, 255, 1));
+    top: calc(100% * var(--random-y)); 
+    left: calc(100% * var(--random-x));
+  
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      top: calc(100% * var(--random-y)); 
+      left: calc(100% * var(--random-x));
+      background: linear-gradient(-45deg, rgba(0, 0, 255, 0), rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
+      transform: rotate(45deg);
+      border-radius: 100%;
+      animation: shining 2s infinite;
+    }
+  
+    &::after {
+      transform: rotate(-45deg);
+    }
+    
+  }
+  
+@keyframes shining {
+  0% {
+    width: 0;
+  }
+  
+  50% {
+    width: 5px;
+  }
+  
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes twinkle {
+  0% {
+      opacity: 0.2;
+      transform: scale(1);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1.5);
+  }
+}
+
+@keyframes shining {
+  0% {
+    width: 0;
+  }
+  
+  50% {
+    width: 30px;
+  }
+  
+  100% {
+    width: 0;
+  }
+}
+
