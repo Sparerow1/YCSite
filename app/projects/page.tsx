@@ -60,10 +60,9 @@ export default function Project() {
               <div className={style.gridContainer}>
                   {
                         customCard
-                  }
+                }
               </div>
           </div>
       </>
   );
 }
-
