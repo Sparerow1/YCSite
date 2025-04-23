@@ -11,6 +11,8 @@ interface CustomModalPopupNodeProps {
 interface Paragraph {
     paraId: string;
     paraText: string;
+    nodeId: number;
+    nodeTitle: string;
 }
 
 export default function PopUp({isOpen, onClose, id}: CustomModalPopupNodeProps) {
@@ -56,7 +58,7 @@ export default function PopUp({isOpen, onClose, id}: CustomModalPopupNodeProps) 
                  open={isOpen}
                  onClose={onClose}
             >
-                <h1>Popup content here !!</h1>
+                <h1>{paras.length > 0 ? paras[0].nodeTitle : ''}</h1>
                 {paragraphs}
     
             </Popup>
