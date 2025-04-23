@@ -73,30 +73,45 @@ db.serialize(() => {
         [1],[2],[3],[4],[5],[6],[7],[8]
     ];
     const paragraphsValues = [
-        [1, 1, "This is the first paragraph for node 1."],
-        [2, 1, "This is the second paragraph for node 1."],
-        [3, 1, "This is the third paragraph for node 1."],
-        [4, 2, "This is the first paragraph for node 2."],
-        [5, 2, "This is the second paragraph for node 2."],
-        [6, 2, "This is the third paragraph for node 2."],
-        [7, 3, "This is the first paragraph for node 3."],
-        [8, 3, "This is the second paragraph for node 3."],
-        [9, 3, "This is the third paragraph for node 3."],
-        [10, 4, "This is the first paragraph for node 4."],
-        [11, 4, "This is the second paragraph for node 4."],
-        [12, 4, "This is the third paragraph for node 4."],
-        [13, 5, "This is the first paragraph for node 5."],
-        [14, 5, "This is the second paragraph for node 5."],
-        [15, 5, "This is the third paragraph for node 5."],
-        [16, 6, "This is the first paragraph for node 6."],
-        [17, 6, "This is the second paragraph for node 6."],
-        [18, 6, "This is the third paragraph for node 6."],
-        [19, 7, "This is the first paragraph for node 7."],
-        [20, 7, "This is the second paragraph for node 7."],
-        [21, 7, "This is the third paragraph for node 7."],
-        [22, 8, "This is the first paragraph for node 8."],
-        [23, 8, "This is the second paragraph for node 8."],
-        [24, 8, "This is the third paragraph for node 8."]
+        // Node 1: About Me
+        [1, 1, "Hello! I'm Yan Chen, a passionate developer who enjoys solving problems and building useful applications."],
+        [2, 1, "My journey in technology began with curiosity and has grown into a lifelong pursuit of learning."],
+        [3, 1, "I believe in continuous improvement and always strive to expand my skillset and knowledge."],
+
+        // Node 2: Aspiration
+        [4, 2, "My aspiration is to become a software engineer who creates impactful solutions for real-world problems."],
+        [5, 2, "I am driven by the desire to make technology accessible and beneficial to everyone."],
+        [6, 2, "I hope to contribute to projects that inspire and empower others."],
+
+        // Node 3: Perseverance
+        [7, 3, "Perseverance has been a key part of my journey, helping me overcome challenges and setbacks."],
+        [8, 3, "I believe that persistence and resilience are essential traits for personal and professional growth."],
+        [9, 3, "Every obstacle is an opportunity to learn and become stronger."],
+
+        // Node 4: Culture
+        [10, 4, "Growing up in a multicultural environment has shaped my worldview and appreciation for diversity."],
+        [11, 4, "I value open-mindedness and enjoy learning about different cultures and perspectives."],
+        [12, 4, "Cultural diversity enriches both my personal life and my approach to teamwork."],
+
+        // Node 5: University Life
+        [13, 5, "University life has been a time of growth, learning, and forming lasting friendships."],
+        [14, 5, "I have enjoyed collaborating with peers on projects and participating in campus activities."],
+        [15, 5, "The academic challenges have prepared me for a career in technology."],
+
+        // Node 6: Came From
+        [16, 6, "I come from a background that values hard work, curiosity, and resilience."],
+        [17, 6, "My family and community have always encouraged me to pursue my dreams."],
+        [18, 6, "These roots have given me a strong foundation for my personal and professional journey."],
+
+        // Node 7: Immigration
+        [19, 7, "Immigrating to a new country taught me adaptability and the importance of embracing change."],
+        [20, 7, "The experience has made me more resilient and open to new opportunities."],
+        [21, 7, "I am grateful for the challenges and growth that came with this transition."],
+
+        // Node 8: Education
+        [22, 8, "Education has always been a priority for me, driving my pursuit of knowledge."],
+        [23, 8, "I am committed to lifelong learning and staying updated with the latest in technology."],
+        [24, 8, "My educational journey has equipped me with the skills to tackle complex problems."]
     ];
     const imageLinksValues = [
         [1, "https://example.com/image1.jpg", 1],
