@@ -16,7 +16,8 @@ const db = new sqlite3.Database( // connect to the database if exists, if not cr
 db.serialize(() => { 
     db.run( // create the nodes table if not exists
         `CREATE TABLE IF NOT EXISTS nodes (
-            nodeId tinyint primary key)`,
+            nodeId tinyint primary key,
+            nodeTitle text)`,
         (err) => {
             if (err) {
                 return console.error("Error creating nodes table: " + err.message);
@@ -70,7 +71,14 @@ db.serialize(() => {
 
     // database values and insert statements
     const nodesValues = [
-        [1],[2],[3],[4],[5],[6],[7],[8]
+        [1, "About Me"],
+        [2, "Aspiration"],
+        [3, "Perseverance"],
+        [4, "Culture"],
+        [5, "University Life"],
+        [6, "Came From"],
+        [7, "Immigration"],
+        [8, "Education"]
     ];
     const paragraphsValues = [
         // Node 1: About Me
@@ -124,7 +132,7 @@ db.serialize(() => {
         [8, "https://example.com/image8.jpg", 8]
     ];
     const insertNodesSql = 
-        `INSERT INTO nodes (nodeId) VALUES (?)`;
+        `INSERT INTO nodes (nodeId, nodeTitle) VALUES (?, ?)`;
     const insertParagraphsSql =
         `INSERT INTO paragraphs (paraId, nodeId, paraText) VALUES (?, ?, ?)`;
     const insertImageLinksSql =
