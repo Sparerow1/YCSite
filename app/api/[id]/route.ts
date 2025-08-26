@@ -1,6 +1,5 @@
 import sqlite3 from "sqlite3";
 import { open, Database } from "sqlite";
-import { NextApiRequest, NextApiResponse } from 'next';
 
 // Initialize a variable to hold the SQLite database connection
 let db: Database | null = null;
