@@ -15,7 +15,7 @@ async function connectDatabase(): Promise<Database> {
     return db;
 }
 
-export async function GET(req: Request) {
+export async function GET() {
     try {
         const database = await connectDatabase();
         const projects = await database.all(`SELECT * FROM project`);
