@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import sqlite3 from "sqlite3";
 import { open, Database } from "sqlite";
 
