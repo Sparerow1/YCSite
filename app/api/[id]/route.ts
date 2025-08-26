@@ -18,17 +18,20 @@ async function connectDatabase() {
     }
 }
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(request: Request, context: any) {
     try {
         await connectDatabase();
 
-        const id = params.id; // get the node id from the route params
+        const id = context?.params?.id as string | undefined; // get the node id from the route params
+        if (!id) {
+            return new Response("Missing id parameter", { status: 400 });
+        }
 
         const paragraphs = await db!.all(
             `SELECT * FROM paragraphs 
                 JOIN nodes ON paragraphs.nodeId = nodes.nodeId
                 WHERE paragraphs.nodeId = ?`, 
-            id
+            [id]
         );
 
         return new Response(JSON.stringify(paragraphs), {
