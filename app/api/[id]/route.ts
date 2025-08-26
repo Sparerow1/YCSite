@@ -18,11 +18,11 @@ async function connectDatabase() {
     }
 }
 
-export async function GET(request: Request, context: any) {
+export async function GET(request: Request, context: unknown) {
     try {
         await connectDatabase();
 
-        const id = context?.params?.id as string | undefined; // get the node id from the route params
+        const id = (context as { params?: { id?: string } })?.params?.id; // get the node id from the route params
         if (!id) {
             return new Response("Missing id parameter", { status: 400 });
         }
