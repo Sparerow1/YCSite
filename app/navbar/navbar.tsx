@@ -34,7 +34,6 @@ export default function Navbar() {
 
                 <Link href="/projects/" className={styles.tab}>Projects</Link>
 
-                <Link href="/experience/" className={styles.tab}>Experience</Link>
             </div>
 
             
