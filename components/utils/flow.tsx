@@ -6,11 +6,10 @@ import { Node,
     Controls, 
     useNodesState, 
     useEdgesState, 
-    addEdge, 
     ConnectionLineType} from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import {initialNodes, nodeTypes, initialEdges} from './flowNodes';
-import React, { useCallback } from "react";
+import React from "react";
 import dagre from 'dagre';
 
 
