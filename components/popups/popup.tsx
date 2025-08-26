@@ -48,9 +48,8 @@ export default function PopUp({isOpen, onClose, id}: CustomModalPopupNodeProps) 
                 <p>{para.paraText}</p>
             </div>
         );
-    }
-
-    )
+    });
+    // console.log(paras);
     return (
         
             <Popup  position="right center"
