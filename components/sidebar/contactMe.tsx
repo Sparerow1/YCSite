@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 
-export default function contactMe() {
+export default function ContactMe() {
   const form = useRef<HTMLFormElement>(null);
 
   const validateEmail = (email: string) => {

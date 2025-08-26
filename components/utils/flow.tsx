@@ -61,8 +61,8 @@ const getLayoutedElements = (nodes: Node[], edges: Edge[], direction = 'TB') => 
 
 export default function Flow() {
     const proOptions = { hideAttribution: true };
-    const [nodes, setNodes, onNodesChange] = useNodesState(layoutedNodes); // use the useNodesState hook to set the nodes and handle node changes based on the layouted nodes
-    const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges); // use the useEdgesState hook to set the edges and handle edge changes based on the layouted edges
+    const [nodes, , onNodesChange] = useNodesState(layoutedNodes); // use the useNodesState hook to set the nodes and handle node changes based on the layouted nodes
+    const [edges, , onEdgesChange] = useEdgesState(layoutedEdges); // use the useEdgesState hook to set the edges and handle edge changes based on the layouted edges
  
     return (
         <div style={{ height: '100%', width: '100%' }}>

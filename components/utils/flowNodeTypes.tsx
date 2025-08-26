@@ -1,4 +1,4 @@
-import ReactFlow, { Handle, Position } from '@xyflow/react';
+import { Handle, Position } from '@xyflow/react';
 import React, { useState } from 'react';
 import styles from './flow.module.css';
 import Strip from './strip';

@@ -13,7 +13,7 @@ export default function Strip() {
             if (strip) {
                 strip.classList.remove(styles.strip); // remove the animation
                 console.log(styles.strip + 'animation removed');
-                strip.offsetHeight; // trigger reflow
+                void strip.offsetHeight; // trigger reflow (avoid unused-expression lint error)
                 strip.classList.add(styles.strip); // add the animation back
             }
         }

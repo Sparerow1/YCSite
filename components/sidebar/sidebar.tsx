@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React from 'react';
 import { ReactNode } from 'react';
 import styles from './sidebar.module.css';
 import { FaCaretRight } from 'react-icons/fa';
