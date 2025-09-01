@@ -37,7 +37,6 @@ RUN adduser -S nextjs -u 1001
 
 # Change ownership of the app directory
 RUN chown -R nextjs:nodejs /app
-USER nextjs
 
 # Expose port
 EXPOSE 3000
@@ -45,20 +44,19 @@ EXPOSE 3000
 # Create an entrypoint script to initialize database and start the app
 RUN echo '#!/bin/sh\n\
 echo "Initializing databases..."\n\
+cd /app\n\
 node databaseComponents/aboutMe.js\n\
 node databaseComponents/projects.js\n\
 echo "Starting application..."\n\
 exec "$@"' > /docker-entrypoint.sh && \
 chmod +x /docker-entrypoint.sh
 
-# Health check
+# Health check (simplified to avoid dependency on missing endpoint)
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:3000/api/health || exit 1
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1
 
 # Use entrypoint to initialize database before starting
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 # Start the application
 CMD ["npm", "start"]
-
-
