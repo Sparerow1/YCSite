@@ -72,12 +72,68 @@ export default function Project() {
     <>
           <div>
               <h1 className={style.title}>Projects</h1>
-              <h2  className={style.self_introduction}>
-                I am someone that loves to code and create things. 
-                I am a software engineer and 
-                I have worked on a variety of projects and I am always looking for new challenges. I am passionate about technology
-              </h2>
+              <h2 className={style.self_introduction}>
+                    I am someone that loves to code and create things. 
+                    I am a software engineer and 
+                    I have worked on a variety of projects and I am always looking for new challenges. I am passionate about technology
+                </h2>
+                
+                {/* Tech Stack Section */}
+                <div className={style.techStack}>
+                    <h3 className={style.techStackTitle}>Tech Stack</h3>
+                    <div className={style.techStackGrid}>
+                        <div className={style.techItem}>
+                            <img 
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" 
+                                alt="Python" 
+                                className={style.techLogo}
+                            />
+                            <span className={style.techName}>Python</span>
+                        </div>
+                        <div className={style.techItem}>
+                            <img 
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" 
+                                alt="C#" 
+                                className={style.techLogo}
+                            />
+                            <span className={style.techName}>C#</span>
+                        </div>
+                        <div className={style.techItem}>
+                            <img 
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
+                                alt="JavaScript" 
+                                className={style.techLogo}
+                            />
+                            <span className={style.techName}>JavaScript</span>
+                        </div>
+                        <div className={style.techItem}>
+                            <img 
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" 
+                                alt="React" 
+                                className={style.techLogo}
+                            />
+                            <span className={style.techName}>React</span>
+                        </div>
+                        <div className={style.techItem}>
+                            <img 
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" 
+                                alt="Node.js" 
+                                className={style.techLogo}
+                            />
+                            <span className={style.techName}>Node.js</span>
+                        </div>
+                        <div className={style.techItem}>
+                            <img 
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" 
+                                alt="TypeScript" 
+                                className={style.techName}
+                            />
+                            <span className={style.techName}>TypeScript</span>
+                        </div>
+                    </div>
+                </div>
           </div>
+          
           <div className={style.container}>
               <div className={style.gridContainer}>
                   {pro.length === 0 ? (
