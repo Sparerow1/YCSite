@@ -74,7 +74,7 @@ export default function Project() {
               <h1 className={style.title}>Projects</h1>
               <h2  className={style.self_introduction}>
                 I am someone that loves to code and create things. 
-                I am a software engineer and I . 
+                I am a software engineer and 
                 I have worked on a variety of projects and I am always looking for new challenges. I am passionate about technology
               </h2>
           </div>
