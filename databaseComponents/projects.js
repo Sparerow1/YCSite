@@ -38,8 +38,8 @@ db.serialize(() => {
         }
     )
     projectValues = [
-        ["Bible-Assistant", "https://via.placeholder.com/150", "A Bible study assistant.", "https://github.com/Sparerow1/bible-study-assistant"],
-        ["Kyckflix", "https://via.placeholder.com/150", "A project about movies and tv shows.", "https://github.com/grammerjam/team-kyck"],
+        ["Bible-Assistant", "https://via.placeholder.com/150", "A Bible study assistant.", "https://bible-study-assistant.onrender.com/web"],
+        ["Kyckflix", "https://via.placeholder.com/150", "A group project about movies and tv shows.", "https://github.com/grammerjam/team-kyck"],
         ["Yan's YouTube", "https://via.placeholder.com/150", "My version of YouTube.", "https://github.com/Sparerow1/YouTube_Clone"],
         ["Support Squad", "https://via.placeholder.com/150", "A project to help homeless people.", "https://github.com/Sparerow1/Support_Squad"],
         ["Database Projects", "https://via.placeholder.com/150", "Projects for my database", "https://bitbucket.org/yanheng_chen/lis3781/src/master/"],
