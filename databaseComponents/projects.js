@@ -32,6 +32,7 @@ db.serialize(() => {
         }
     )
     projectValues = [
+        ["Bible-Assistant", "https://via.placeholder.com/150", "A Bible study assistant.", "https://github.com/Sparerow1/Bible-Assistant"],
         ["Kyckflix", "https://via.placeholder.com/150", "A project about movies and tv shows.", "https://github.com/Sparerow1/Kyck"],
         ["Yan's YouTube", "https://via.placeholder.com/150", "My version of YouTube.", "https://github.com/Sparerow1/YouTube_Clone"],
         ["Support Squad", "https://via.placeholder.com/150", "A project to help homeless people.", "https://github.com/Sparerow1/Support_Squad"],
