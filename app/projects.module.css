@@ -88,19 +88,24 @@
 
 .techStackGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, 120px);
     gap: 1.5rem;
     max-width: 800px;
     margin: 0 auto;
+    justify-content: center;
 }
 
 .techItem {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 1rem;
     border-radius: 8px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 120px;
+    height: 120px;
+    box-sizing: border-box;
 }
 
 .techItem:hover {

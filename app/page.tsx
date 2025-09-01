@@ -77,10 +77,8 @@ export default function Project() {
                     I am a software engineer and 
                     I have worked on a variety of projects and I am always looking for new challenges. I am passionate about technology
                 </h2>
-                
-                {/* Tech Stack Section */}
+
                 <div className={style.techStack}>
-                    <h3 className={style.techStackTitle}>Tech Stack</h3>
                     <div className={style.techStackGrid}>
                         <div className={style.techItem}>
                             <img 
@@ -126,9 +124,41 @@ export default function Project() {
                             <img 
                                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" 
                                 alt="TypeScript" 
-                                className={style.techName}
+                                className={style.techLogo}
                             />
                             <span className={style.techName}>TypeScript</span>
+                        </div>
+                        <div className={style.techItem}>
+                            <img 
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" 
+                                alt="MySQL" 
+                                className={style.techLogo}
+                            />
+                            <span className={style.techName}>MySQL</span>
+                        </div>
+                        <div className={style.techItem}>
+                            <img 
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" 
+                                alt=".NET" 
+                                className={style.techLogo}
+                            />
+                            <span className={style.techName}>.NET</span>
+                        </div>
+                        <div className={style.techItem}>
+                            <img 
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blazor/blazor-original.svg" 
+                                alt="Blazor" 
+                                className={style.techLogo}
+                            />
+                            <span className={style.techName}>Blazor</span>
+                        </div>
+                        <div className={style.techItem}>
+                            <img 
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" 
+                                alt="Next.js" 
+                                className={style.techLogo}
+                            />
+                            <span className={style.techName}>Next.js</span>
                         </div>
                     </div>
                 </div>
