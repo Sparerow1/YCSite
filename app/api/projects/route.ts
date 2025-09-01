@@ -2,6 +2,7 @@ export const dynamic = "force-dynamic";
 
 import sqlite3 from "sqlite3";
 import { open, Database } from "sqlite";
+import path from "path";
 
 // Initialize a variable to hold the SQLite database connection
 // we will initilize it as null, but we will assign the connection later on
@@ -9,8 +10,10 @@ let db: Database | null = null;
 
 async function connectDatabase(): Promise<Database> {
     if (!db) {
+        const dbPath = path.join(process.cwd(), "databaseComponents", "projects.db");
+        console.log("Connecting to projects database at:", dbPath);
         db = await open({
-            filename: "./databaseComponents/projects.db",
+            filename: dbPath,
             driver: sqlite3.Database
         });
     }

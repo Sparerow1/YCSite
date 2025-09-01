@@ -35,6 +35,10 @@ COPY databaseComponents/ ./databaseComponents/
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
+# Create database directory with proper permissions
+RUN mkdir -p /app/databaseComponents && \
+    chown -R nextjs:nodejs /app/databaseComponents
+
 # Change ownership of the app directory
 RUN chown -R nextjs:nodejs /app
 
@@ -43,12 +47,25 @@ EXPOSE 3000
 
 # Create an entrypoint script to initialize database and start the app
 RUN echo '#!/bin/sh\n\
-echo "Initializing databases..."\n\
+echo "=== Starting Application ==="\n\
+echo "Current user: $(whoami)"\n\
+echo "Current directory: $(pwd)"\n\
+echo "Database directory contents:"\n\
+ls -la databaseComponents/\n\
+echo "\n=== Initializing Databases ==="\n\
 cd /app\n\
-node databaseComponents/aboutMe.js\n\
-node databaseComponents/projects.js\n\
-echo "Starting application..."\n\
-exec "$@"' > /docker-entrypoint.sh && \
+echo "Running database initialization..."\n\
+node databaseComponents/init-databases.js\n\
+if [ $? -eq 0 ]; then\n\
+    echo "Database initialization successful!"\n\
+    echo "Final database directory contents:"\n\
+    ls -la databaseComponents/\n\
+    echo "\n=== Starting Application ==="\n\
+    exec "$@"\n\
+else\n\
+    echo "Database initialization failed!"\n\
+    exit 1\n\
+fi' > /docker-entrypoint.sh && \
 chmod +x /docker-entrypoint.sh
 
 # Health check (simplified to avoid dependency on missing endpoint)

@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:init": "node databaseComponents/init-databases.js",
+    "db:test": "node scripts/test-db.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

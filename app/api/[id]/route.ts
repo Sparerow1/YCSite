@@ -2,6 +2,7 @@ export const dynamic = "force-dynamic";
 
 import sqlite3 from "sqlite3";
 import { open, Database } from "sqlite";
+import path from "path";
 
 // Initialize a variable to hold the SQLite database connection
 let db: Database | null = null;
@@ -9,8 +10,10 @@ let db: Database | null = null;
 async function connectDatabase() {
     if (!db) {
         try {
+            const dbPath = path.join(process.cwd(), "databaseComponents", "contents.db");
+            console.log("Connecting to database at:", dbPath);
             db = await open({
-                filename: "./databaseComponents/contents.db",
+                filename: dbPath,
                 driver: sqlite3.Database
             });
         } catch (error) {
@@ -18,6 +21,7 @@ async function connectDatabase() {
             throw error;
         }
     }
+    return db;
 }
 
 export async function GET(request: Request, context: unknown) {

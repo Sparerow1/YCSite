@@ -1,13 +1,19 @@
 const sqlite3 = require("sqlite3").verbose();
+const path = require("path");
+
+// Use absolute path for database file
+const dbPath = path.join(__dirname, "projects.db");
+console.log("Database path:", dbPath);
 
 const db = new sqlite3.Database( // connect to the database if exists, if not create it
-    "./projects.db",
+    dbPath,
     sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE,
     (err) => {
         if (err) {
-            console.error(err.message);
+            console.error("Error connecting to database:", err.message);
+            process.exit(1);
         } else {
-            console.log("Connected to the contents SQLite database.");
+            console.log("Connected to the projects SQLite database at:", dbPath);
         }
     }
 );
