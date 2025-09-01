@@ -28,10 +28,11 @@ export default function Navbar() {
             </Link>
 
             <div className={styles.tabs}>
+                {/*
                 <Link href="/" className={styles.tab}>
                     About Me
                 </Link>
-
+                */}
                 <Link href="/projects/" className={styles.tab}>Projects</Link>
                 {/*
                 <Link href="/experience/" className={styles.tab}>Experience</Link>
