@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import ActionAreaCard from '../components/cards/customCard';
 import style  from './projects.module.css'
 
-
 interface Project {
     proId: number;
     proTitle: string;
@@ -14,24 +13,48 @@ interface Project {
 
 export default function Project() {
     const [pro, setPro] = useState<Project[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/projects/`, {
+    // Use relative URL instead of hardcoded localhost
+    fetch(`/api/projects/`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         }
-    }) // fetch the data from the API endpoint
-    .then(response => { // handle if the response is not ok
+    })
+    .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
         return response;
     })
-    .then((res) => res.json()) // convert the response to JSON
-    .then((data) => setPro(data)) // set the data to the state variable
-    .catch((error) => console.log("Error fetching data from the API: ", error)); // log any errors
+    .then((res) => res.json())
+    .then((data) => {
+        console.log('Fetched projects:', data); // Debug log
+        setPro(data);
+        setLoading(false);
+    })
+    .catch((error) => {
+        console.error("Error fetching data from the API: ", error);
+        setError(error.message);
+        setLoading(false);
+    });
   }, []);
+
+  // Show loading state
+  if (loading) {
+    return <div>Loading projects...</div>;
+  }
+
+  // Show error state
+  if (error) {
+    return <div>Error loading projects: {error}</div>;
+  }
+
+  // Debug log to see if data exists
+  console.log('Current projects state:', pro);
 
   const customCard = pro.map((project) => {
     return (
@@ -45,7 +68,6 @@ export default function Project() {
     );
   });
 
-
   return (
     <>
           <div>
@@ -58,9 +80,11 @@ export default function Project() {
           </div>
           <div className={style.container}>
               <div className={style.gridContainer}>
-                  {
-                        customCard
-                }
+                  {pro.length === 0 ? (
+                    <div>No projects found</div>
+                  ) : (
+                    customCard
+                  )}
               </div>
           </div>
       </>
