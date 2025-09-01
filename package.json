@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:init": "node databaseComponents/init-databases.js",
+    "db:init": "node databaseComponents/db-manager.js",
     "db:test": "node scripts/test-db.js"
   },
   "dependencies": {

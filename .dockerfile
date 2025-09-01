@@ -28,52 +28,36 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.ts ./
 
-# Copy database files and initialization scripts
+# Copy database components
 COPY databaseComponents/ ./databaseComponents/
 
-# Create non-root user for security
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
-
-# Create database directory with proper permissions
+# Create database directory and set permissions
 RUN mkdir -p /app/databaseComponents && \
-    chown -R nextjs:nodejs /app/databaseComponents
-
-# Change ownership of the app directory
-RUN chown -R nextjs:nodejs /app
+    chmod 755 /app/databaseComponents
 
 # Expose port
 EXPOSE 3000
 
-# Create an entrypoint script to initialize database and start the app
+# Create a simple startup script
 RUN echo '#!/bin/sh\n\
 echo "=== Starting Application ==="\n\
-echo "Current user: $(whoami)"\n\
 echo "Current directory: $(pwd)"\n\
-echo "Database directory contents:"\n\
-ls -la databaseComponents/\n\
+echo "Database directory: $(ls -la databaseComponents/)"\n\
 echo "\n=== Initializing Databases ==="\n\
-cd /app\n\
-echo "Running database initialization..."\n\
-node databaseComponents/init-databases.js\n\
+node databaseComponents/db-manager.js\n\
 if [ $? -eq 0 ]; then\n\
-    echo "Database initialization successful!"\n\
-    echo "Final database directory contents:"\n\
-    ls -la databaseComponents/\n\
-    echo "\n=== Starting Application ==="\n\
+    echo "=== Database initialization successful ==="\n\
+    echo "=== Starting Next.js application ==="\n\
     exec "$@"\n\
 else\n\
-    echo "Database initialization failed!"\n\
+    echo "=== Database initialization failed ==="\n\
     exit 1\n\
-fi' > /docker-entrypoint.sh && \
-chmod +x /docker-entrypoint.sh
+fi' > /start.sh && chmod +x /start.sh
 
-# Health check (simplified to avoid dependency on missing endpoint)
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
   CMD wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1
 
-# Use entrypoint to initialize database before starting
-ENTRYPOINT ["/docker-entrypoint.sh"]
-
-# Start the application
+# Use the startup script
+ENTRYPOINT ["/start.sh"]
 CMD ["npm", "start"]
