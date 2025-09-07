@@ -8,6 +8,7 @@
     box-shadow: -2px 0 5px rgba(0,0,0,0.5);
     transition: right 0.3s ease;
     z-index: 1000;
+    overflow-y: auto;
 }
 
 .sidebar.open {
@@ -47,7 +48,6 @@
 .linkedin {
     position: absolute;
     right: 20px;
-    
 }
 
 .label {
@@ -72,11 +72,88 @@
     width: 40%;
     font-size: 16px;
     margin-left: 30%;
-
 }
+
 .message {
     resize: none;
     width: 98%;
     min-height: 100px;
     max-height: 150px;
+}
+
+/* Responsive Sidebar */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .title {
+        font-size: 40px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .input {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .label {
+        font-size: 14px;
+    }
+    
+    .submitButton {
+        width: 60%;
+        margin-left: 20%;
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .message {
+        min-height: 80px;
+        max-height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .title {
+        font-size: 32px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .input {
+        padding: 8px;
+        font-size: 12px;
+    }
+    
+    .label {
+        font-size: 13px;
+    }
+    
+    .submitButton {
+        width: 70%;
+        margin-left: 15%;
+        padding: 10px;
+        font-size: 13px;
+    }
+    
+    .message {
+        min-height: 70px;
+        max-height: 100px;
+    }
+    
+    .github {
+        padding-left: 15px;
+    }
+    
+    .linkedin {
+        right: 15px;
+    }
 }

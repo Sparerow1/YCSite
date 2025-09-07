@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Yanheng Chen's Blog",
   description: "Yanheng Chen's Blog",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({

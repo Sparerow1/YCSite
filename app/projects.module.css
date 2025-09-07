@@ -19,6 +19,32 @@
   font-size: 2.25rem;
   line-height: 2.5rem;
   color: black;
+  text-align: center;
+}
+
+/* Responsive Self Introduction */
+@media (max-width: 1024px) {
+  .self_introduction {
+    padding: 0 50px;
+    font-size: 2rem;
+    line-height: 2.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .self_introduction {
+    padding: 0 30px;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .self_introduction {
+    padding: 0 20px;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
 }
 
 .title {
@@ -29,6 +55,33 @@
   font-size: 5rem;
   line-height: 2.5rem;
   color: black;
+}
+
+/* Responsive Title */
+@media (max-width: 1024px) {
+  .title {
+    padding: 0 50px;
+    font-size: 4rem;
+    line-height: 2.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    padding: 0 30px;
+    font-size: 3rem;
+    line-height: 2rem;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    padding: 0 20px;
+    font-size: 2.5rem;
+    line-height: 1.75rem;
+    justify-content: center;
+  }
 }
 
 .container{
@@ -45,6 +98,43 @@
   gap: 24px;
   padding: 100px 0;
   justify-content: center;
+}
+
+/* Responsive Container and Grid */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  .gridContainer {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 0));
+    gap: 20px;
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .gridContainer {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 0));
+    gap: 16px;
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  .gridContainer {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 40px 0;
+  }
 }
 .section { 
   scroll-snap-align: start; 
@@ -124,4 +214,69 @@
     font-size: 0.9rem;
     font-weight: 500;
     color: #555;
+}
+
+/* Responsive Tech Stack */
+@media (max-width: 768px) {
+  .techStack {
+    margin: 1.5rem 0;
+  }
+  
+  .techStackTitle {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .techStackGrid {
+    grid-template-columns: repeat(auto-fit, 100px);
+    gap: 1rem;
+    max-width: 600px;
+  }
+  
+  .techItem {
+    width: 100px;
+    height: 100px;
+    padding: 0.75rem;
+  }
+  
+  .techLogo {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .techName {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .techStack {
+    margin: 1rem 0;
+  }
+  
+  .techStackTitle {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .techStackGrid {
+    grid-template-columns: repeat(auto-fit, 80px);
+    gap: 0.75rem;
+    max-width: 400px;
+  }
+  
+  .techItem {
+    width: 80px;
+    height: 80px;
+    padding: 0.5rem;
+  }
+  
+  .techLogo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .techName {
+    font-size: 0.7rem;
+  }
 }
