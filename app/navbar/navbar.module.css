@@ -3,7 +3,8 @@
     background-color: black;
     display: flex;
     align-items: center;
-    padding: 10px 0;
+    justify-content: space-between;
+    padding: 10px 20px;
     z-index: 100;
     position: fixed;
     top: 0;
@@ -11,11 +12,12 @@
     right: 0;
     width: 100%;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 100vw;
 }
 
 .logo {
-    margin-left: 10px;
     max-height: 50px;
+    flex-shrink: 0;
 }
 
 .logo:hover {
@@ -36,8 +38,11 @@
 
 .tabs {
     display: flex;
-    width: 40%;
-    justify-content: left;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .tab {
@@ -46,8 +51,10 @@
     padding: 14px 20px;
     text-align: center;
     flex: 1;
-    margin: 0 5px; /* Space between tabs */
+    margin: 0 5px;
     font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
 .tab:hover {
@@ -57,11 +64,17 @@
 
 .sidebarTab {
     color: white;
-    margin-left: auto;
     display: flex;
     align-items: center;
-    margin-right: 10px;
     cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.sidebarTab:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .sidebar {
@@ -112,12 +125,11 @@
 /* Responsive Navbar */
 @media (max-width: 768px) {
     .nav {
-        padding: 8px 0;
+        padding: 8px 15px;
     }
     
     .logo {
         max-height: 40px;
-        margin-left: 5px;
     }
     
     .tabs {
@@ -129,6 +141,8 @@
         background-color: black;
         flex-direction: column;
         box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        max-width: none;
+        margin: 0;
     }
     
     .tabs.open {
@@ -139,6 +153,7 @@
         padding: 12px 20px;
         margin: 0;
         border-bottom: 1px solid #333;
+        border-radius: 0;
     }
     
     .tab:last-child {
@@ -156,7 +171,7 @@
 
 @media (max-width: 480px) {
     .nav {
-        padding: 6px 0;
+        padding: 6px 10px;
     }
     
     .logo {
