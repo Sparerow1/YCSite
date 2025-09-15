@@ -33,7 +33,7 @@ export default function Navbar() {
                     About Me
                 </Link>
                 */}
-                <Link href="/" className={styles.tab}>Projects</Link>
+                <Link href="/" className={styles.tab}>Yanheng Chen</Link>
                 {/*
                 <Link href="/experience/" className={styles.tab}>Experience</Link>
                 */
