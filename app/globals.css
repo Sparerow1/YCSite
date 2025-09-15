@@ -38,6 +38,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Add padding to compensate for fixed navbar */
+  padding-top: 70px;
 }
 
 * {
@@ -84,6 +87,10 @@ p {
 
 /* Responsive Typography */
 @media (max-width: 768px) {
+  body {
+    padding-top: 56px; /* Adjust for smaller navbar on mobile */
+  }
+  
   h1 {
     font-size: 28px;
     margin: 60px 0 30px;
@@ -101,6 +108,10 @@ p {
 }
 
 @media (max-width: 480px) {
+  body {
+    padding-top: 46px; /* Adjust for even smaller navbar on small mobile */
+  }
+  
   h1 {
     font-size: 24px;
     margin: 40px 0 20px;
