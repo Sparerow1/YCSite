@@ -136,7 +136,8 @@ export default function Project() {
 
   return (
     <>
-          <div>
+          {/* About Me Section */}
+          <div id="about-section">
               <h1 className={style.title}>Yanheng Chen</h1>
               <h2 className={style.self_introduction}>
                     I am someone that loves to code and create things. 
@@ -230,7 +231,8 @@ export default function Project() {
                 </div>
           </div>
           
-          <div className={style.container}>
+          {/* Projects Section */}
+          <div id="projects-section" className={style.container}>
               <div className={style.gridContainer}>
                   {pro.length === 0 ? (
                     <div>No projects found</div>
@@ -241,7 +243,7 @@ export default function Project() {
           </div>
 
           {/* Contact Me Section */}
-          <div className={style.contactSection}>
+          <div id="contact-section" className={style.contactSection}>
               <div className={style.contactContainer}>
                   <div className={style.socialLinks}>
                       <Link href="https://www.linkedin.com/in/yan-chen-8a7a50211" target='blank' className={style.socialLink}>

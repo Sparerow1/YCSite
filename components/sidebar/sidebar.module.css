@@ -81,6 +81,115 @@
     max-height: 150px;
 }
 
+/* Navigation Styles */
+.navigationContainer {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.navTitle {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.navMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border: none;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    text-align: left;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navItem:hover {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,123,255,0.3);
+}
+
+.navIcon {
+    font-size: 1.5rem;
+    min-width: 2rem;
+    text-align: center;
+}
+
+.navText {
+    flex: 1;
+}
+
+.socialSection {
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 2px solid #e9ecef;
+}
+
+.socialTitle {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.socialLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.socialLink {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1.2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.socialLink:hover {
+    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(40,167,69,0.3);
+}
+
+.socialIcon {
+    font-size: 1.3rem;
+    min-width: 1.5rem;
+    text-align: center;
+}
+
+.socialText {
+    flex: 1;
+}
+
 /* Responsive Sidebar */
 @media (max-width: 768px) {
     .sidebar {
@@ -113,6 +222,39 @@
     .message {
         min-height: 80px;
         max-height: 120px;
+    }
+    
+    .navigationContainer {
+        padding: 15px;
+    }
+    
+    .navTitle {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .navItem {
+        padding: 0.8rem 1.2rem;
+        font-size: 1rem;
+    }
+    
+    .navIcon {
+        font-size: 1.3rem;
+        min-width: 1.8rem;
+    }
+    
+    .socialTitle {
+        font-size: 1.1rem;
+    }
+    
+    .socialLink {
+        padding: 0.7rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .socialIcon {
+        font-size: 1.2rem;
+        min-width: 1.3rem;
     }
 }
 
@@ -155,5 +297,38 @@
     
     .linkedin {
         right: 15px;
+    }
+    
+    .navigationContainer {
+        padding: 12px;
+    }
+    
+    .navTitle {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .navItem {
+        padding: 0.7rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .navIcon {
+        font-size: 1.2rem;
+        min-width: 1.6rem;
+    }
+    
+    .socialTitle {
+        font-size: 1rem;
+    }
+    
+    .socialLink {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .socialIcon {
+        font-size: 1.1rem;
+        min-width: 1.2rem;
     }
 }

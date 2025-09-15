@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { FaAlignJustify } from "react-icons/fa";
-import ContactMe from '@/components/sidebar/contactMe';
+import Navigation from '@/components/sidebar/navigation';
 import Sidebar from "../../components/sidebar/sidebar";
 
 export default function Navbar() { 
@@ -12,6 +12,11 @@ export default function Navbar() {
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
+    };
+
+    const handleNavigate = (section: string) => {
+        // Close sidebar after navigation
+        setSidebarOpen(false);
     };
 
     return (
@@ -47,7 +52,7 @@ export default function Navbar() {
 
             <Sidebar isOpen={sidebarOpen}
                      onClose={toggleSidebar}>
-                <ContactMe/>
+                <Navigation onNavigate={handleNavigate}/>
             </Sidebar>
 
 
