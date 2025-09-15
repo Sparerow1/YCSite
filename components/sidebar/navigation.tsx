@@ -20,7 +20,6 @@ export default function Navigation({ onNavigate }: NavigationProps) {
 
     return (
         <div className={styles.navigationContainer}>
-            <h1 className={styles.navTitle}>Navigation</h1>
             
             <nav className={styles.navMenu}>
                 <button 
