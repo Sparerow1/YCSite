@@ -71,7 +71,7 @@ export default function Project() {
   return (
     <>
           <div>
-              <h1 className={style.title}>Projects</h1>
+              <h1 className={style.title}>Yanheng Chen</h1>
               <h2 className={style.self_introduction}>
                     I am someone that loves to code and create things. 
                     I am a software engineer and 
