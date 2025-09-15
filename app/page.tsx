@@ -1,7 +1,10 @@
 'use client'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import ActionAreaCard from '../components/cards/customCard';
 import style  from './projects.module.css'
+import emailjs from '@emailjs/browser';
+import Link from 'next/link';
+import Image from 'next/image';
 
 interface Project {
     proId: number;
@@ -15,6 +18,7 @@ export default function Project() {
     const [pro, setPro] = useState<Project[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const form = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     // Use relative URL instead of hardcoded localhost
@@ -42,6 +46,68 @@ export default function Project() {
         setLoading(false);
     });
   }, []);
+
+  // Contact form validation and submission functions
+  const validateEmail = (email: string) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const validateLinkedIn = (linkedin: string) => {
+    // regex to validate linkedin URL the ? at the end makes it optional
+    const re = /^(https:\/\/www.linkedin.com\/in\/[a-zA-Z0-9_-]+\/?)?$/;
+    return re.test(String(linkedin).toLowerCase());
+  }
+
+  const validateForm = (form: HTMLFormElement) => {
+    const email = form.email_address.value;
+    const name = form.from_name.value;
+    const message = form.message.value;
+    const linkedin = form.linkedin.value;
+
+    if (name === "") {
+      alert("Please enter your name.");
+      return false;
+    }
+    if (!validateEmail(email)) {
+      alert("Please enter a valid email address.");
+      return false;
+    }
+    if (!validateLinkedIn(linkedin)) {
+      alert("Please enter a valid LinkedIn URL.");
+      return false;
+    }
+
+    if (message === "") {
+      alert("Please enter a message.");
+      return false;
+    }
+
+    return true;
+  }
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (form.current) {
+      if (!validateForm(form.current)) {
+        return;
+      }
+
+      emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '', 
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '', 
+        form.current, 
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
+        )
+        .then((result) => {
+            console.log(result.text);
+            alert("Message sent successfully!");
+        }, (error) => {
+            console.log(error.text);
+            console.error("Error sending message: ", error);
+        });
+    }
+  };
 
   // Show loading state
   if (loading) {
@@ -171,6 +237,56 @@ export default function Project() {
                   ) : (
                     customCard
                   )}
+              </div>
+          </div>
+
+          {/* Contact Me Section */}
+          <div className={style.contactSection}>
+              <div className={style.contactContainer}>
+                  <div className={style.socialLinks}>
+                      <Link href="https://www.linkedin.com/in/yan-chen-8a7a50211" target='blank' className={style.socialLink}>
+                          <Image  
+                              className={style.socialIcon}
+                              width={60}
+                              height={60}
+                              src="/linkedin.svg" alt="Linkedin" />
+                      </Link>
+
+                      <Link href="https://github.com/Sparerow1" target='blank' className={style.socialLink}>
+                          <Image  
+                              className={style.socialIcon}
+                              width={60}
+                              height={60}
+                              src="/github.svg" alt="Github" />
+                      </Link>
+                  </div>
+
+                  <h1 className={style.contactTitle}>Contact Me</h1>
+                  <fieldset className={style.contactFieldset}>
+                      <form ref={form} onSubmit={sendEmail}>
+                          <label className={style.contactLabel}> 
+                              Name: *
+                              <input type="text" className={style.contactInput} name="from_name"/>
+                          </label>
+                          
+                          <label className={style.contactLabel}>
+                              Email: *
+                              <input type="email" className={style.contactInput} name='email_address'/>
+                          </label>
+                          
+                          <label className={style.contactLabel}>
+                              LinkedIn (optional):
+                              <input type="text" className={style.contactInput} name='linkedin'/>
+                          </label>
+                          
+                          <label className={style.contactLabel}>
+                              Message: *
+                              <textarea className={style.contactMessage} name='message'/>
+                          </label>
+                          
+                          <button type="submit" className={style.contactSubmitButton}>Submit</button>
+                      </form>
+                  </fieldset>
               </div>
           </div>
       </>
